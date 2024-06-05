@@ -1,0 +1,13 @@
+// root variable
+:root {
+  --root-padding: 0 2rem;
+  --root-wrap: 1256px;
+  --media-desktop1920: 'max-width: 1919px';
+  --media-desktop1440: 'max-width: 1439px';
+  --media-desktop1366: 'max-width: 1365px';
+  --media-desktop1280: 'max-width: 1279px';
+  --media-tablet: 'max-width: 1023px';
+  --media-mobile: 'max-width: 767px';
+  --transition3: 0.3s ease-in-out all;
+  --box-shadow-black: 0 0 15px 0 rgb(68 68 68 / 10%);
+}

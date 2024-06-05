@@ -1,0 +1,1 @@
+export { useNewsPageController } from './useNewsPageController'
