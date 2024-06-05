@@ -6,10 +6,10 @@
       <slot />
     </div>
 
-    <div class="app-footer"></div>
+    <Footer />
   </div>
 </template>
 
-<script setup lang="ts">
-import { Header } from "./ui";
+<script lang="ts" setup>
+import { Footer, Header } from "./ui";
 </script>

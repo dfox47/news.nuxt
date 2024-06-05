@@ -4,12 +4,12 @@ export interface Article {
         name: string;
     };
     author: string | null;
-    title: string;
+    content: string | null;
     description: string | null;
+    publishedAt: string;
+    title: string;
     url: string;
     urlToImage: string | null;
-    publishedAt: string;
-    content: string | null;
 }
 
 export interface GetArticlesParams {

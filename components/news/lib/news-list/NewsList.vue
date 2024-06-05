@@ -2,14 +2,14 @@
   <div class="news-list">
     <NewsCard
         v-for="(item, index) in props.items"
-        :item="item"
         :key="index"
         :index="index"
+        :item="item"
     />
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { defineProps } from "vue";
 import { NewsCard } from "~/components/news/lib";
 
@@ -17,13 +17,19 @@ const props = defineProps<{ items?: any[] }>();
 </script>
 
 <style lang="scss">
-.news-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+@import '~/assets/css/variable';
 
-  .news-card {
-    width: calc((100% / 3) - 16px);
+.news-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media screen and (max-width: (var(--media-tablet))) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
   }
 }
 </style>

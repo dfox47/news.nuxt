@@ -1,8 +1,8 @@
 <template>
-  <div class="skeleton" :style="{ height: `${styles}px` }"></div>
+  <div :style="{ height: `${styles}px` }" class="skeleton"></div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 
 const props = defineProps<{ height?: number }>()
@@ -13,17 +13,6 @@ const styles = computed(() => {
 </script>
 
 <style lang="scss">
-.skeleton {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: linear-gradient(90deg, #636363 25%, #cdcdcd 37%, #636363 63%);
-  background-size: 400% 100%;
-  border-radius: 8px;
-  opacity: 0.3;
-  animation: el-skeleton-loading 3s ease infinite;
-}
-
 @keyframes el-skeleton-loading {
   0% {
     background-position: 100% 50%;
@@ -32,5 +21,16 @@ const styles = computed(() => {
   100% {
     background-position: 0 50%;
   }
+}
+
+.skeleton {
+  animation: el-skeleton-loading 3s ease infinite;
+  background: linear-gradient(90deg, #636363 25%, #cdcdcd 37%, #636363 63%);
+  background-size: 400% 100%;
+  border-radius: 8px;
+  opacity: .3;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 </style>

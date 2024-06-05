@@ -2,18 +2,18 @@
   <div class="news-search">
     <Input
       v-model="search"
-      size="large"
       :suffix-icon="Search"
-      @keyup.enter="onClickSearch"
-      @clear="onClickClearSearch"
       clearable
+      size="large"
+      @clear="onClickClearSearch"
+      @keyup.enter="onClickSearch"
     />
 
-    <Button type="primary" @click="onClickSearch" size="large">Найти</Button>
+    <Button size="large" type="primary" @click="onClickSearch">Найти</Button>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { Search } from "@element-plus/icons-vue";
 import { ref, defineEmits } from "vue";
 import { Input, Button } from "~/shared";
@@ -35,7 +35,10 @@ const onClickClearSearch = () => {
 <style lang="scss">
 .news-search {
   display: flex;
-  gap: 12px;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 20rem;
+  width: 100%;
 
   .input {
     width: 100%;

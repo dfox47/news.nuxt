@@ -7,5 +7,14 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@element-plus/nuxt"],
+  modules: [
+    "@element-plus/nuxt",
+    ["@nuxtjs/google-fonts", {
+      families: {
+        Roboto: [100, 400, 500, 700]
+      }
+    }]
+  ],
+  ssr: true,
+  target: 'server',
 })

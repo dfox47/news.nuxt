@@ -4,14 +4,14 @@
       <div class="news__container">
         <Heading>Поиск новостей</Heading>
 
-        <NewsSearch @search="onSearch" @clear="" />
+        <NewsSearch @clear="" @search="onSearch" />
 
-        <Loading :value="true" v-if="isLoading" />
+        <Loading v-if="isLoading" :value="true" />
 
         <template v-else>
-          <NewsList :items="model.list" v-if="model.list.length" />
+          <NewsList v-if="model.list.length" :items="model.list" />
 
-          <p class="news__notfound" v-else>Новостей нет</p>
+          <p v-else class="news__notfound">Новостей нет</p>
         </template>
       </div>
     </Section>
@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref, onMounted } from "vue"
 import { Section, Heading, Loading } from "~/shared";
 import { useNewsController } from "~/components/news/controller";
@@ -45,9 +45,20 @@ const onSearch = async (stroke: string) => {
 getNews()
 
 onMounted(() => {
-  setTimeout(() => {
-    showSubscribeModal.value = true
-  }, 1000)
+  const showModal = () => {
+    setTimeout(() => {
+      showSubscribeModal.value = true
+
+      localStorage.setItem('modalSubscribe', 0)
+    }, 1000)
+  }
+
+  if (localStorage.getItem('modalSubscribe') !== '0') {
+    showModal()
+  }
+  else {
+    console.log('modalSubscribe already showed once. Clear cookie to see it again')
+  }
 })
 </script>
 

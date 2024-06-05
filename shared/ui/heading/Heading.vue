@@ -4,8 +4,6 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
-
 <style lang="scss">
 .heading {
   font-size: 3rem;

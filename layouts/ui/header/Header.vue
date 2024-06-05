@@ -2,14 +2,13 @@
   <div class="header">
     <Section>
       <div class="header__container">
-        <NuxtLink to="/" class="app-link header__logo">
-          new app
-        </NuxtLink>
+        <NuxtLink class="app-link header__logo" to="/">Home</NuxtLink>
+
         <div class="header__menu">
           <NuxtLink
-            :to="item.to"
             v-for="(item, index) in items"
             :key="index"
+            :to="item.to"
             class="app-link"
           >
             {{ item.name }}
@@ -20,7 +19,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { Section } from "~/shared";
 
 const items = [
@@ -33,33 +32,33 @@ const items = [
 
 <style lang="scss">
 .header {
+  align-items: center;
+  background: var(--bg-main);
+  box-shadow: var(--box-shadow-black);
+  display: flex;
+  height: 3rem;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 99;
-  width: 100%;
-  height: 62px;
-  background: #fff;
-  box-shadow: var(--box-shadow-black);
   transition: var(--transition3);
-  align-items: center;
-  display: flex;
+  width: 100%;
+  z-index: 9;
 
   &__container {
     align-items: center;
     display: flex;
-    justify-content: center;
     height: 100%;
+    justify-content: center;
   }
 
   &__logo {
+    font-weight: 700;
     text-transform: uppercase;
-    font-weight: 900;
   }
 
   &__menu {
-    gap: 12px;
     display: flex;
+    gap: 1rem;
     margin-left: auto;
   }
 }
