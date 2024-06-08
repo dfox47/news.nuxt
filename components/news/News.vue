@@ -2,7 +2,7 @@
   <div class="news">
     <Section>
       <div class="news__container">
-        <Heading>Поиск новостей</Heading>
+        <Heading>News searching</Heading>
 
         <NewsSearch @clear="" @search="onSearch" />
 
@@ -49,11 +49,11 @@ onMounted(() => {
     setTimeout(() => {
       showSubscribeModal.value = true
 
-      localStorage.setItem('modalSubscribe', 0)
+      localStorage.setItem('modalSubscribe', 'false')
     }, 1000)
   }
 
-  if (localStorage.getItem('modalSubscribe') !== '0') {
+  if (localStorage.getItem('modalSubscribe') !== 'false') {
     showModal()
   }
   else {
